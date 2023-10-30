@@ -1,0 +1,23 @@
+{
+  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx", ".js", ".jsx"],
+  "compilerOptions": {
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "target": "ES2022",
+    "strict": true,
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "typeRoots": ["node_modules/@types", "./@types", "./"],
+    "types": ["tesseract.js"],
+    "paths": {
+      "~/*": ["./app/*"]
+    },
+    "noEmit": true,
+  }
+}
