@@ -1,18 +1,18 @@
 import { LoaderFunction, json } from "@remix-run/node";
+import { prisma } from "~/utils/prisma.server";
 import { Layout } from "~/components/layout";
 import { BrandsPanel } from "~/components/brands-panel";
 import {
   getSafeBrands,
   getAllBrands,
   getAllMaterials,
-  updateSafe,
 } from "~/utils/brands.server";
 import { useLoaderData, Outlet, Link } from "@remix-run/react";
 import React, { Suspense, useState, useEffect } from "react";
 import { BsUpcScan, BsSearch } from "react-icons/bs/index.js";
 import { Camera, CameraResultType, Photo } from "@capacitor/camera";
 // import { createWorker } from "tesseract.js";
-import { Brand } from "~/utils/types.server";
+import { BrandType } from "~/utils/types.server";
 
 export const loader: LoaderFunction = async ({ request, params }) => {
   const safeBrands = await getSafeBrands();
@@ -27,7 +27,7 @@ export default function Home() {
   const [searchText, setSearchText] = useState("");
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [currentView, setCurrentView] = useState("brands");
-  const [brands, setBrands] = useState<Brand[]>([]);
+  const [brands, setBrands] = useState<BrandType[]>([]);
   const [capturedImage, setCapturedImage] = useState<null | Photo>(null);
   // const worker = createWorker();
 
@@ -117,13 +117,43 @@ export default function Home() {
 
   const markAsSafe = async (brandId: string) => {
     try {
+      // If the brand is not in the safeBrands list, mark it as safe and then update the local state
       await updateSafe(brandId);
+
       // After marking as safe, re-fetch the data and update the local state
       fetchBrands();
     } catch (error) {
       console.error("Error marking brand as safe:", error);
     }
   };
+
+  async function updateSafe(brandId: any): Promise<BrandType> {
+    try {
+      const brandToUpdate = await prisma.brand.findUnique({
+        where: { brandId: brandId },
+      });
+
+      if (!brandToUpdate) {
+        console.error("Brand not found for ID: ", brandId);
+        throw new Error("Brand not found.");
+      }
+
+      const safeBrandsUpdated = await prisma.brand.update({
+        where: {
+          brandId: brandId,
+        },
+        data: {
+          isSafe: true,
+        },
+      });
+
+      console.log("Brand marked as safe");
+      return safeBrandsUpdated;
+    } catch (error) {
+      console.error("Error updating brand as safe:", error);
+      throw error;
+    }
+  }
 
   return (
     <Layout>

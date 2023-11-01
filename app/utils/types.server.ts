@@ -11,7 +11,7 @@ export type RegisterForm = {
     password: string
   }
 
-  export type Brand = {
+  export type BrandType = {
     brandId: string;
     brandName: string;
     rateOnPeople: number;

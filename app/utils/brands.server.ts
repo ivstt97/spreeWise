@@ -1,4 +1,5 @@
 import { prisma } from './prisma.server'
+import { BrandType } from './types.server';
 
 export const getSafeBrands = async () => {
   const safeBrands = await prisma.brand.findMany({
@@ -10,24 +11,24 @@ export const getSafeBrands = async () => {
 };
 
 
-export const updateSafe = async (brandId: string) => {
-  try {
-    const safeBrandsUpdated = await prisma.brand.update({
-      where: {
-        brandId: brandId,
-      },
-      data: {
-        isSafe: true,
-      },
-    });
+// export async function updateSafe(brandId: string): Promise<Brand> {
+//   try {
+//     const safeBrandsUpdated = await prisma.brand.update({
+//       where: {
+//         brandId: brandId,
+//       },
+//       data: {
+//         isSafe: true,
+//       },
+//     });
 
-    console.log("Brand marked as safe");
-    return safeBrandsUpdated;
-  } catch (error) {
-    console.error("Error updating brand as safe:", error);
-    throw error;
-  }
-};
+//     console.log("Brand marked as safe");
+//     return safeBrandsUpdated;
+//   } catch (error) {
+//     console.error("Error updating brand as safe:", error);
+//     throw error;
+//   }
+// }
 
 
 
