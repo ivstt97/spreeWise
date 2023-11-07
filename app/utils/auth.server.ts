@@ -4,12 +4,12 @@ import { json, createCookieSessionStorage, redirect } from "@remix-run/node";
 import { createUser } from "./user.server";
 import bcrypt from "bcryptjs";
 
-
+// Ensure the session secret is defined in the environment variables
 const sessionSecret = process.env.SESSION_SECRET
 if (!sessionSecret) {
   throw new Error('SESSION_SECRET must be set')
 }
-
+// Initialize a session storage using cookies
 const storage = createCookieSessionStorage({
   cookie: {
     name: 'kudos-session',

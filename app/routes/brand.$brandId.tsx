@@ -4,7 +4,7 @@ import React from "react";
 import { Modal } from "~/components/modal";
 import { getBrandById } from "~/utils/brands.server";
 
-export const loader: LoaderFunction = async ({ request, params }) => {
+export const loader: LoaderFunction = async ({ params }) => {
   const { brandId } = params;
 
   if (typeof brandId !== "string") {

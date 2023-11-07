@@ -68,12 +68,12 @@ export default function Home() {
       quality: 90,
       resultType: CameraResultType.Uri,
     });
-    // 'image' contains the captured image data.
+
     setCapturedImage(image);
-    // Create an HTMLImageElement from the captured image data
+
     const imgElement: any = new Image();
-    imgElement.src = image.webPath; // Assuming webPath points to the image
-    // Wait for the image to load
+    imgElement.src = image.webPath;
+
     await new Promise((resolve) => {
       imgElement.onload = resolve;
     });
