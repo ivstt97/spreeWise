@@ -6,7 +6,7 @@
     "scripts": {
       "build": "npx tailwindcss -i app/styles/app.css -o app/styles/app.css",
       "build:css": "npx tailwindcss -m -i /app/styles/app.css -o /app/styles/app.css",
-      "dev": "npm run dev:css && remix dev",
+      "dev": "npm run dev:css",
       "dev:css": "npx tailwindcss -w -i app/styles/app.css -o app/styles/app.css"
     },
   "dependencies": {
