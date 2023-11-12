@@ -4,11 +4,11 @@
     "sideEffects": false,
     "type": "module",
     "scripts": {
-      "build": "npx tailwindcss -i app/styles/app.css -o app/styles/app.css && remix build",
+      "build": "npx tailwindcss -i app/styles/app.css -o app/styles/app.css && npm run build",
       "build:css": "npx tailwindcss -m -i /app/styles/app.css -o /app/styles/app.css",
-      "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
+      "dev": "concurrently \"npm run dev:css\" \"npm run start\"",
       "dev:css": "tailwindcss -w -i app/styles/app.css -o app/styles/app.css"
-    },
+    },    
   "dependencies": {
     "@capacitor/android": "^5.5.1",
     "@capacitor/camera": "^5.0.7",
