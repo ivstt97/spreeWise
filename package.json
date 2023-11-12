@@ -4,8 +4,8 @@
     "sideEffects": false,
     "type": "module",
     "scripts": {
-      "build": "npx tailwindcss -i app/styles/app.css -o app/styles/app.css && npm run build",
       "build:css": "npx tailwindcss -m -i /app/styles/app.css -o /app/styles/app.css",
+      "build": "npm run build:css",
       "dev": "concurrently \"npm run dev:css\" \"npm run start\"",
       "dev:css": "tailwindcss -w -i app/styles/app.css -o app/styles/app.css"
     },    
