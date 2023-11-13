@@ -88,7 +88,7 @@ export default function Home() {
   //     const image = await Camera.getPhoto({
   //       quality: 90,
   //       resultType:
-  //         "c:/Users/istoi/OneDrive/Работен плот/projects/spreeWise/node_modules/@capacitor/camera/dist/esm/definitions"
+  //         ""
   //           .Uri,
   //     });
 
