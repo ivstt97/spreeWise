@@ -1,6 +1,6 @@
 {
     "name": "spreewise",
-    "private": true,
+    "private": false,
     "sideEffects": false,
     "type": "module",
     "scripts": {
@@ -8,7 +8,7 @@
         "build:css": "npx tailwindcss -m -i /app/styles/app.css -o /app/styles/app.css",
         "dev:css": "npx tailwindcss -w -i app/styles/app.css -o app/styles/app.css",
         "dev": "npx remix dev"
-      },
+    },
     "dependencies": {
         "@capacitor/android": "^5.5.1",
         "@capacitor/camera": "^5.0.7",
@@ -19,6 +19,7 @@
         "@remix-run/css-bundle": "^2.0.1",
         "@remix-run/node": "^2.0.1",
         "@remix-run/react": "^2.1.0",
+        "@remix-run/dev": "^2.2.0",
         "async-ocrad": "^0.0.2",
         "bcryptjs": "^2.4.3",
         "isbot": "^3.7.0",
@@ -28,7 +29,7 @@
         "tesseract.js": "^5.0.2"
     },
     "devDependencies": {
-        "@remix-run/dev": "^2.0.1",
+        "@remix-run/dev": "^2.2.0",
         "@remix-run/eslint-config": "^2.0.1",
         "@remix-run/serve": "^2.2.0",
         "@types/bcryptjs": "^2.4.4",
