@@ -7,7 +7,7 @@
         "build": "npx tailwindcss -i app/styles/app.css -o app/styles/app.css",
         "build:css": "npx tailwindcss -m -i /app/styles/app.css -o /app/styles/app.css",
         "dev:css": "npx tailwindcss -w -i app/styles/app.css -o app/styles/app.css",
-        "dev": "npx tailwindcss -i app/styles/app.css -o app/styles/app.css && remix dev"
+        "dev": "npx remix dev"
       },
     "dependencies": {
         "@capacitor/android": "^5.5.1",
