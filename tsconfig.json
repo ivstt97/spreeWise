@@ -1,5 +1,5 @@
 {
-  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx", ".js", ".jsx"],
+  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx", ".js", ".jsx", "app/entry.worker.js"],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "isolatedModules": true,
@@ -14,7 +14,7 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "typeRoots": ["node_modules/@types", "./@types", "./"],
-    "types": ["tesseract.js"],
+    "types": [""],
     "paths": {
       "~/*": ["./app/*"]
     },
