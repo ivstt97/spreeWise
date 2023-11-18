@@ -38,6 +38,7 @@
         "@types/tesseract.js": "^2.0.0",
         "autoprefixer": "^10.4.16",
         "concurrently": "^8.2.2",
+        "create-remix": "^2.3.0",
         "eslint": "^8.54.0",
         "postcss": "^8.4.31",
         "prisma": "^5.6.0",
