@@ -17,9 +17,15 @@ export const loader: LoaderFunction = async ({ params }) => {
 };
 
 export default function Brand() {
-  const { currBrand } = useLoaderData();
+  const { currBrand } = useLoaderData() as { currBrand: any };
   const { brandName, rateOnPeople, rateOnAnimals, rateOnPlanet, ethicalScore } =
-    currBrand;
+    currBrand as {
+      brandName: string;
+      rateOnPeople: number;
+      rateOnAnimals: number;
+      rateOnPlanet: number;
+      ethicalScore: number;
+    };
 
   return (
     <Modal isOpen={true} className="w-2/3 p-4 sm:p-8 lg:p-10 xl:p-12">

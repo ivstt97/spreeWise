@@ -257,7 +257,7 @@ export default function Home() {
                       )
                       .map((material: any) => (
                         <div
-                          key={material.materialId}
+                          key={material.materialID}
                           className="border p-4 hover-bg-gray-200">
                           <p className="text-xl font-bold">
                             {material.materialName}
